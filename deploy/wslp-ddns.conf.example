@@ -1,0 +1,28 @@
+# wslp-ddns configuration: KEY=VALUE lines; comments must be on their own line.
+# Environment variables with the same names override these values.
+
+# Technitium web console / API base URL, e.g. http://10.0.0.53:5380 or https://dns.wslp.cc:53443
+TECHNITIUM_URL=
+
+# API token for a user with View + Modify on the zone (see README).
+TECHNITIUM_TOKEN=
+
+# Zone the record is created in.
+DDNS_ZONE=internal.wslp.cc
+
+# Record name inside the zone. Defaults to this machine's hostname (first label, lowercased).
+#DDNS_HOSTNAME=
+
+# DNS TTL in seconds: how long resolvers may cache the answer.
+# Kept short so an IP change shows up quickly.
+DDNS_TTL=300
+
+# Technitium deletes the record this many seconds after the last refresh.
+# 21600 = 6h, so the record disappears after ~6 missed hourly runs. 0 disables auto-delete.
+DDNS_EXPIRY_TTL=21600
+
+# Publish this interface's IPv4 address instead of the one used to reach the Technitium server.
+#DDNS_INTERFACE=eth0
+
+# Replace an existing A record that wslp-ddns did not create (e.g. one you made by hand).
+#DDNS_TAKEOVER=false

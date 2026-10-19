@@ -1,0 +1,23 @@
+[Unit]
+Description=Register this container's A record in Technitium DNS
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/wslp-ddns
+User=wslp-ddns
+Group=wslp-ddns
+NoNewPrivileges=yes
+# Covers the client's own retries (~2 min worst case) with headroom.
+TimeoutStartSec=5min
+
+# Extra sandboxing. These need mount namespaces, which unprivileged LXC containers
+# only allow with nesting enabled; without it the unit fails with status=226/NAMESPACE.
+# Uncomment them if your containers have nesting=1.
+#ProtectSystem=strict
+#ProtectHome=yes
+#PrivateTmp=yes
+#PrivateDevices=yes
+#ProtectKernelTunables=yes
+#ProtectControlGroups=yes

@@ -1,0 +1,6 @@
+bin/
+obj/
+dist/
+*.swp
+# Filled-in config holds the API token.
+deploy/wslp-ddns.conf

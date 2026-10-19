@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WslpDdns/WslpDdns.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/WslpDdns.Tests/WslpDdns.Tests.csproj" />
+  </Folder>
+</Solution>

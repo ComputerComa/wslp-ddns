@@ -1,0 +1,12 @@
+[Unit]
+Description=Refresh this container's Technitium A record hourly
+
+[Timer]
+# First run at boot; the service waits for network-online.target before it starts.
+OnBootSec=0
+# Then hourly, counted from the previous run.
+OnUnitActiveSec=1h
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
